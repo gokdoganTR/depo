@@ -1,0 +1,18 @@
+void setup() 
+{
+ pinMode(13, OUTPUT);
+}
+
+void loop() 
+{
+  while(1)//in terms of  assembly  language for every go to commands takes 4 clock cycles
+  {
+ 
+REG_PIOB_SODR = 0x1 << 27;//pin13 set bit 1  two clock cycle for setting port 1
+
+REG_PIOB_CODR = 0x1 << 27;//pin13 clear bir 0 two clock cycle for setting port 0
+
+//4(for go to command)+2+2=8clock cycle Master clock/8=84Mhz/8=10.5Mhz output at pin13
+  }
+
+}
